@@ -314,6 +314,22 @@ class Recepciones extends CActiveRecord
             {
                 return false;
             }
-        }        
-        
+        }   
+     /**
+      * funcion para actualizar el estatus de la recepcion,analizando el estatus de los detalles
+      */   
+     public function actualizaEstatus()
+     {         
+         $modelDetalles=false;
+         $modelDetalles= DetalleRecepciones::model()->findAll('idRecepciones=:parent_id and estatus ="NOENTREGA" ',array(':parent_id'=>  $this->id));
+         if(!$modelDetalles)
+         {
+             $this->estatus='COMPLETO';
+             if($this->save())
+             {
+                 $objBitacora = new Bitacora();                        
+                 $objBitacora->setMovimiento('EDITAR','Recepciones','estatus',$this->id,'INCOMPLETO',7); 
+             }
+         }
+     }
 }

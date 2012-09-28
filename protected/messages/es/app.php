@@ -41,6 +41,7 @@ return array(
   'Item not found'=>'Elemento no encontrado',  
   'The oc was entered'=>'La Oc ya fue recepcionada',
   'Receive products'=> 'Recepción de productos de adquisinet', 
+  'standby'=>'Pendientes de entrega',  
 );
 
 

@@ -91,6 +91,8 @@ class DetalleRecepciones extends CActiveRecord
             $modelFalta->idDetalleRecepciones=$this->id;
             if($modelFalta->save())
             {
+                 $objBitacora = new Bitacora();
+                 $objBitacora->setMovimiento('CREAR','Faltantes','',$modelFalta->id,'',6); 
                 return true;
             }
             else

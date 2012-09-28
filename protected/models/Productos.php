@@ -91,6 +91,7 @@ class Productos extends CActiveRecord
             $model = Productos::model()->findByPk($idProducto);
             if($model)
             {
+                $cantidadActual=$model->existencias;
                 if($op=='+')
                 {
                     $model->existencias += $cantidad;                    
@@ -100,7 +101,11 @@ class Productos extends CActiveRecord
                     $model->existencias -= $cantidad;
                 }
                 if($model->save())
+                {
+                    $objBitacora = new Bitacora();                        
+                    $objBitacora->setMovimiento('EDITAR','Productos','existencias',$model->id,$cantidadActual,7);
                     return true;
+                }    
                 else
                     return false;
             }

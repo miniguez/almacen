@@ -4,7 +4,8 @@
     ?>
 <?php
 $this->breadcrumbs=array(
-	Yii::t('app','Receive products'),	
+	Yii::t('app','Receive products'),
+        Yii::t('app','standby')=>array('faltantes'),
 );
 ?>
 <?php

@@ -27,7 +27,7 @@ class ArecepcionarController extends Controller
 	{
                 return array(
 			array('allow',
-				'actions'=>array('ocpendientes','recepcionar','desplegarOc'),
+				'actions'=>array('ocpendientes','recepcionar','desplegarOc','faltantes'),
 				'expression'=>'Yii::app()->user->getState("idTipoUsuario")==1',
 			),
 			array('deny',
@@ -108,8 +108,7 @@ class ArecepcionarController extends Controller
                                 $detalles= $_POST['oc-grid_c6'];
                                 $recepcionado->setDetalleRecepcionIncompleto($mOc->id,$recepcionado->id,$detalles);                                
                             }                            
-                        }
-                        
+                        }                        
                     }
                     Yii::app()->user->setFlash('success',Yii::t('app','Item successfully added')); 
                     $this->redirect(array('recepcionar'));
@@ -137,6 +136,25 @@ class ArecepcionarController extends Controller
                     echo CHtml::tag('option',array('value' => $id),CHtml::encode($value),true);
                 }
        }
+       public function actionFaltantes()
+        {
+            $model=new Faltantes('searchEntrega');
+            $model->unsetAttributes();  // clear any default values
+            if(isset($_GET['Faltantes']))
+                $model->attributes=$_GET['Faltantes'];
+            
+            if(isset($_POST['yt0']))
+            {
+               if(isset($_POST['productos-grid_c5']))
+               {
+                   $detalles= $_POST['productos-grid_c5'];
+                   $model->recepcion($detalles);                                
+               } 
+            }
+            $this->render('faltantes',array(
+			  'model'=>$model,
+            ));
+        }
 	
 }
 
