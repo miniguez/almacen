@@ -95,7 +95,7 @@ if($mRec==true)
                 ),
                 array(
                     'class'=>'myCheckBoxColumn',
-                    'checked'=>'$data->Cantidad > 10',
+                    'checked'=>'',
                     'selectableRows'=>2,
                     'value'=>'$data->idDetalleoc'
                 ),

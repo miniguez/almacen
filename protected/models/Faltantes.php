@@ -83,7 +83,7 @@ class Faltantes extends CActiveRecord
                                     'idDetalleRecepciones0.idIOProductos0.idProductos0');
             $criteria=new CDbCriteria;
 	    $criteria->compare('id',$this->id);
-	    $criteria->compare('cantidad',$this->cantidad);
+	    $criteria->compare('unidad',$this->cantidad);
     	    $criteria->compare('estatus',$this->estatus,true);
 	    $criteria->compare('fechaRegistro',$this->fechaRegistro,true);
 	    $criteria->compare('fechaEntrega',$this->fechaEntrega,true);
