@@ -19,8 +19,9 @@ class DetalleRecepciones extends CActiveRecord
 			array('idDetalleoc, idIOProductos, idRecepciones', 'numerical', 'integerOnly'=>true),
 			array('cantidad', 'numerical'),
 			array('estatus', 'length', 'max'=>9),
+                        array('direccion', 'length', 'max'=>120),
                         array('fecha','default','value'=>new CDbExpression('NOW()'),'setOnEmpty'=>false,'on'=>'insert'),
-			array('id, estatus, cantidad, fecha,idDetalleoc, idIOProductos, idRecepciones', 'safe', 'on'=>'search'),
+			array('id, estatus, cantidad, fecha,idDetalleoc, idIOProductos, idRecepciones,direccion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -50,6 +51,8 @@ class DetalleRecepciones extends CActiveRecord
                         'idDetalleoc' => Yii::t('app', 'Id Detalleoc'),
 			'idIOProductos' => Yii::t('app', 'Id Ioproductos'),
 			'idRecepciones' => Yii::t('app', 'Id Recepciones'),
+                        'direccion' => Yii::t('app', 'Dirección'),
+                    
 		);
 	}
 

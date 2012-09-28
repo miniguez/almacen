@@ -93,7 +93,8 @@ class Recepciones extends CActiveRecord
                     $modelDetalleRecepcion->cantidad=$detalle->Cantidad;
                     $modelDetalleRecepcion->idDetalleoc=$detalle->idDetalleoc;
                     $modelDetalleRecepcion->idIOProductos=$idIoproducto;
-                    $modelDetalleRecepcion->idRecepciones=$idRecepcion;                                       
+                    $modelDetalleRecepcion->idRecepciones=$idRecepcion;  
+                    $modelDetalleRecepcion->direccion=$detalle->Nombre;
                     if($modelDetalleRecepcion->save())
                     {
                         //se actualiza la entrada 
@@ -279,7 +280,8 @@ class Recepciones extends CActiveRecord
                     $modelDetalleRecepcion->cantidad=$detalle->Cantidad;
                     $modelDetalleRecepcion->idDetalleoc=$detalle->idDetalleoc;
                     $modelDetalleRecepcion->idIOProductos=$idIoproducto;
-                    $modelDetalleRecepcion->idRecepciones=$idRecepcion;                                       
+                    $modelDetalleRecepcion->idRecepciones=$idRecepcion;  
+                    $modelDetalleRecepcion->direccion=$detalle->Nombre;
                     if($modelDetalleRecepcion->save())
                     {
                         if($modelDetalleRecepcion->estatus == 'ENTREGADO')
