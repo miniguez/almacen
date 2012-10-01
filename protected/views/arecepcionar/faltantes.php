@@ -40,6 +40,10 @@ $this->widget('Flashes');
                     'value'=>'$data->idDetalleRecepciones0->idIOProductos0->idProductos0->idUnidades0->nombre',
                 ),
                 array(
+                    'name'=>'cantidad',
+                    'value'=>'$data->idDetalleRecepciones0->cantidad',
+                ),
+                array(
                     'name'=>'proveedor',
                     'value'=>'$data->idDetalleRecepciones0->idRecepciones0->proveedor',
                 ),

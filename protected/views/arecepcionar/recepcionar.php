@@ -68,7 +68,7 @@ if($mRec==true)
 <?php $this->widget('bootstrap.widgets.BootButton', array(
                     'buttonType'=>'submit',
                     'type'=>'action',
-			'label'=>'Search',
+			'label'=>'Buscar',
 		)); ?>
 <?php $this->widget('bootstrap.widgets.BootGridView',array(
 	'id'=>'oc-grid',

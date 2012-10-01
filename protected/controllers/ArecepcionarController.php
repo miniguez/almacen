@@ -145,11 +145,12 @@ class ArecepcionarController extends Controller
             
             if(isset($_POST['yt0']))
             {
-               if(isset($_POST['productos-grid_c5']))
+               if(isset($_POST['productos-grid_c6']))
                {
-                   $detalles= $_POST['productos-grid_c5'];
+                   $detalles= $_POST['productos-grid_c6'];                   
                    $model->recepcion($detalles);                                
                } 
+               Yii::app()->user->setFlash('success',Yii::t('app','Item successfully added'));
             }
             $this->render('faltantes',array(
 			  'model'=>$model,
